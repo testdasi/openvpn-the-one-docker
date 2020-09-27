@@ -9,7 +9,12 @@ mkdir -p /temp \
     && mv /temp/static-master /static
 
 # overwrite static with repo-specific stuff
-cp -f /temp/* /static/config/ \
+mkdir -p /temp \
+    && cd /temp \
+    && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-hyrosa/master/config/flood.sh" \
+    && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-client-aio/master/config/privoxy" \
+    && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-client-aio/master/config/torrc" \
+    && cp -f /temp/* /static/config/ \
     && rm -rf /temp
 
 # fix static files for repo-specific stuff
