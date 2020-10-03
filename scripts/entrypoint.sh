@@ -45,6 +45,12 @@ then
     echo "[info] Run tinyproxy in background with no log on port $TINYPROXY_PORT"
     tinyproxy -c /root/tinyproxy/tinyproxy.conf
 
+    ### Torsocks and Privoxy ###
+    echo "[info] Run tor in background on port $TORSOCKS_PORT"
+    start-stop-daemon --start --background --name tor --exec /usr/bin/tor -- -f /root/tor/torrc
+    echo "[info] Run privoxy in background on port $PRIVOXY_PORT"
+    privoxy /root/privoxy/config
+
     ### sabnzbdplus
     echo ''
     echo "[info] Run sabnzbdplus in background on HTTP port $SAB_PORT_A and HTTPS port $SAB_PORT_B"
