@@ -1,0 +1,17 @@
+{
+  "Port": 9117,
+  "AllowExternal": true,
+  "AdminPassword": null,
+  "BlackholeDir": "/data/rtorrent/watch",
+  "UpdateDisabled": false,
+  "UpdatePrerelease": false,
+  "BasePathOverride": "",
+  "OmdbApiKey": "",
+  "OmdbApiUrl": "",
+  "ProxyType": 2,
+  "ProxyUrl": "127.0.0.1",
+  "ProxyPort": 9118,
+  "ProxyUsername": "",
+  "ProxyPassword": "",
+  "ProxyIsAnonymous": true
+}
