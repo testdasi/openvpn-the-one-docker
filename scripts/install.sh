@@ -28,6 +28,7 @@ sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sabnzbdplus.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_rtorrent.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_flood.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_nzbhydra2.sh'
+sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_jackett.sh'
 
 # flood.sh
 mv -f /static/config/flood.sh /app/flood/ \
