@@ -13,6 +13,8 @@ add rule ip filter INPUT iifname "eth0" tcp dport _DNS_PORT_ ct state new,establ
 add rule ip filter INPUT iifname "eth0" udp dport _DNS_PORT_ ct state new,established counter accept
 add rule ip filter INPUT iifname "eth0" tcp dport _DANTE_PORT_ ct state new,established counter accept
 add rule ip filter INPUT iifname "eth0" tcp dport _TINYPROXY_PORT_ ct state new,established counter accept
+add rule ip filter INPUT iifname "eth0" tcp dport _TORSOCKS_PORT_ ct state new,established counter accept
+add rule ip filter INPUT iifname "eth0" tcp dport _PRIVOXY_PORT_ ct state new,established counter accept
 add rule ip filter INPUT iifname "eth0" tcp dport _SAB_PORT_A_ ct state new,established counter accept
 add rule ip filter INPUT iifname "eth0" tcp dport _SAB_PORT_B_ ct state new,established counter accept
 add rule ip filter INPUT iifname "eth0" tcp dport _HYDRA_PORT_ ct state new,established counter accept
@@ -31,6 +33,8 @@ add rule ip filter OUTPUT oifname "eth0" tcp sport _DNS_PORT_ ct state establish
 add rule ip filter OUTPUT oifname "eth0" udp sport _DNS_PORT_ ct state established counter accept
 add rule ip filter OUTPUT oifname "eth0" tcp sport _DANTE_PORT_ ct state established counter accept
 add rule ip filter OUTPUT oifname "eth0" tcp sport _TINYPROXY_PORT_ ct state established counter accept
+add rule ip filter OUTPUT oifname "eth0" tcp sport _TORSOCKS_PORT_ ct state established counter accept
+add rule ip filter OUTPUT oifname "eth0" tcp sport _PRIVOXY_PORT_ ct state established counter accept
 add rule ip filter OUTPUT oifname "eth0" tcp sport _SAB_PORT_A_ ct state established counter accept
 add rule ip filter OUTPUT oifname "eth0" tcp sport _SAB_PORT_B_ ct state established counter accept
 add rule ip filter OUTPUT oifname "eth0" tcp sport _HYDRA_PORT_ ct state established counter accept
