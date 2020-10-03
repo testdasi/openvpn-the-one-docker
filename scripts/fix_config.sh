@@ -29,6 +29,11 @@ sed -i "s|listen-address 0\.0\.0\.0:8118|listen-address 0\.0\.0\.0:$PRIVOXY_PORT
 sed -i "s|forward-socks5t \/ localhost:9050|forward-socks5t \/ localhost:$TORSOCKS_PORT|g" '/root/privoxy/config'
 echo '[info] privoxy fixed.'
 
+mkdir -p /root/jackett \
+    && cp -n /static/config/jackett.json /root/jackett/ServerConfig.json
+sed -i "s|: 9117|: $JACKETT_PORT|g" '/root/jackett/ServerConfig.json'
+echo '[info] jackett fixed.'
+
 ### static scripts ###
 source /static/scripts/fix_config_stubby.sh
 source /static/scripts/fix_config_dante.sh
