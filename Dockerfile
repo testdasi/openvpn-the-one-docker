@@ -46,7 +46,9 @@ RUN /bin/bash /install.sh \
 
 VOLUME ["/root"]
 
-ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+
+# ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 
 HEALTHCHECK CMD /healthcheck.sh
 
