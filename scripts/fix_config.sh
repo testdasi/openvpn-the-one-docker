@@ -18,11 +18,15 @@ sed -i "s|:5076|:$HYDRA_PORT|g" '/app/launcher/index.html'
 sed -i "s|:3000|:$FLOOD_PORT|g" '/app/launcher/index.html'
 echo '[info] launcher fixed.'
 
-sed -i "s|SOCKSPort 0\.0\.0\.0:9050|SOCKSPort 0\.0\.0\.0:$TORSOCKS_PORT|g" '/etc/tor/torrc'
+mkdir -p /root/tor \
+    && cp -n /static/config/torrc /root/tor/
+sed -i "s|SOCKSPort 0\.0\.0\.0:9050|SOCKSPort 0\.0\.0\.0:$TORSOCKS_PORT|g" '/root/tor/torrc'
 echo '[info] torsocks fixed.'
 
-sed -i "s|listen-address 0\.0\.0\.0:8118|listen-address 0\.0\.0\.0:$PRIVOXY_PORT|g" '/etc/privoxy/config'
-sed -i "s|forward-socks5t \/ localhost:9050|forward-socks5t \/ localhost:$TORSOCKS_PORT|g" '/etc/privoxy/config'
+mkdir -p /root/privoxy \
+    && cp -n /static/config/privoxy /root/privoxy/config
+sed -i "s|listen-address 0\.0\.0\.0:8118|listen-address 0\.0\.0\.0:$PRIVOXY_PORT|g" '/root/privoxy/config'
+sed -i "s|forward-socks5t \/ localhost:9050|forward-socks5t \/ localhost:$TORSOCKS_PORT|g" '/root/privoxy/config'
 echo '[info] privoxy fixed.'
 
 ### static scripts ###
