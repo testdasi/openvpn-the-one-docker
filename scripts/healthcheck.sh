@@ -66,6 +66,13 @@ then
     /app/nzbhydra2/nzbhydra2 --daemon --nobrowser --java /usr/lib/jvm/java-11-openjdk-amd64/bin/java --datafolder /root/nzbhydra2 --pidfile /root/nzbhydra2/nzbhydra2.pid
 fi
 
+pidlist=$(pidof jackett)
+if [ -z "$pidlist" ]
+then
+    crashed=$(( $crashed + 1 ))
+    start-stop-daemon --start --background --chuid nobody --name jackett --chdir /app/jackett --exec /app/jackett/jackett -- --DataFolder=/root/jackett
+fi
+
 pidlist=$(pidof python3)
 if [ -z "$pidlist" ]
 then
