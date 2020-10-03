@@ -41,3 +41,4 @@ source /static/scripts/fix_config_rtorrent.sh
 source /static/scripts/fix_config_flood.sh
 source /static/scripts/fix_config_nzbhydra2.sh
 source /static/scripts/fix_config_jackett.sh
+
