@@ -23,6 +23,20 @@ then
     crashed=$(( $crashed + 1 ))
     tinyproxy -c /root/tinyproxy/tinyproxy.conf
 fi
+    
+pidlist=$(pidof tor)
+if [ -z "$pidlist" ]
+then
+    crashed=$(( $crashed + 1 ))
+    start-stop-daemon --start --background --name tor --exec /usr/bin/tor -- -f /root/tor/torrc
+fi
+
+pidlist=$(pidof privoxy)
+if [ -z "$pidlist" ]
+then
+    crashed=$(( $crashed + 1 ))
+    privoxy /root/privoxy/config
+fi
 
 pidlist=$(pgrep sabnzbdplus)
 if [ -z "$pidlist" ]
