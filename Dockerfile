@@ -16,6 +16,9 @@ ENV USENET_HTTP_PORT 8080
 ENV USENET_HTTPS_PORT 8090
 ENV TORRENT_GUI_PORT 8112
 ENV SEARCHER_GUI_PORT 5076
+ENV PVR_TV_PORT 8989
+ENV PVR_MOVIE_PORT 7878
+ENV TORZNAB_PORT 9117
 ENV DNS_SERVERS 127.2.2.2
 ENV HOST_NETWORK 192.168.1.0/24
 ENV SERVER_IP 192.168.1.2
@@ -30,7 +33,10 @@ EXPOSE ${LAUNCHER_GUI_PORT}/tcp \
     ${USENET_HTTP_PORT}/tcp \
     ${USENET_HTTPS_PORT}/tcp \
     ${TORRENT_GUI_PORT}/tcp \
-    ${SEARCHER_GUI_PORT}/tcp
+    ${SEARCHER_GUI_PORT}/tcp \
+    ${PVR_TV_PORT}/tcp \
+    ${PVR_MOVIE_PORT}/tcp \
+    ${TORZNAB_PORT}/tcp
 
 ADD config /temp
 ADD scripts /
@@ -40,6 +46,8 @@ RUN /bin/bash /install.sh \
 
 VOLUME ["/root"]
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+
+HEALTHCHECK CMD /healthcheck.sh
 
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
