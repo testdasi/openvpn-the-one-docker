@@ -28,17 +28,25 @@ sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sabnzbdplus.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_rtorrent.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_flood.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_nzbhydra2.sh'
+sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sonarr.sh'
+sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_radarr.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_jackett.sh'
 
 # flood.sh
 mv -f /static/config/flood.sh /app/flood/ \
     && chmod +x /app/flood/flood.sh
 
+# dup mono binary
+cp /usr/bin/mono /usr/bin/mono-sonarr \
+    && chmod +x /usr/bin/mono-sonarr
+cp /usr/bin/mono /usr/bin/mono-radarr \
+    && chmod +x /usr/bin/mono-radarr
+
 # chmod scripts
 chmod +x /*.sh
 
 # clean up
-#apt-get -y autoremove \
-#    && apt-get -y autoclean \
-#    && apt-get -y clean \
-#    && rm -fr /tmp/* /var/tmp/* /var/lib/apt/lists/*
+apt-get -y autoremove \
+    && apt-get -y autoclean \
+    && apt-get -y clean \
+    && rm -fr /tmp/* /var/tmp/* /var/lib/apt/lists/*
