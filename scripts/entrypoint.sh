@@ -74,7 +74,7 @@ then
 
     ### radarr
     echo ''
-    echo "[info] Run radarr in background on port $JRADARR_PORT"
+    echo "[info] Run radarr in background on port $RADARR_PORT"
     start-stop-daemon --start --background --name radarr --chdir /app/radarr --exec /usr/bin/mono-radarr -- --debug Radarr.exe -nobrowser -data=/root/radarr
 
     ### jackett
