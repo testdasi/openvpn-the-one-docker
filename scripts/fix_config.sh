@@ -6,6 +6,7 @@ echo '[info] language fixed.'
 mkdir -p /root/.getdns \
     && cp -n /static/config/.profile /root/ \
     && cp -n /static/config/.bashrc /root/ \
+    && rm -rf /root/.tor \
     && touch /root/.bash_history
 echo '[info] root folder fixed.'
 
