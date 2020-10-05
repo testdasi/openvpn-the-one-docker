@@ -48,6 +48,10 @@ cp /usr/bin/python3 /usr/bin/python3-launcher \
 cp /usr/bin/python3 /usr/bin/python3-searx \
     && chmod +x /usr/bin/python3-searx
 
+# dup python2 binary
+cp /usr/bin/python2 /usr/bin/python2-launcher \
+    && chmod +x /usr/bin/python2-launcher
+
 # chmod scripts
 chmod +x /*.sh
 
