@@ -42,6 +42,12 @@ cp /usr/bin/mono /usr/bin/mono-sonarr \
 cp /usr/bin/mono /usr/bin/mono-radarr \
     && chmod +x /usr/bin/mono-radarr
 
+# dup python3 binary
+cp /usr/bin/python3 /usr/bin/python3-launcher \
+    && chmod +x /usr/bin/python3-launcher
+cp /usr/bin/python3 /usr/bin/python3-searx \
+    && chmod +x /usr/bin/python3-searx
+
 # chmod scripts
 chmod +x /*.sh
 
