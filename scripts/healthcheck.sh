@@ -87,7 +87,7 @@ then
     start-stop-daemon --start --background --chuid nobody --name jackett --chdir /app/jackett --exec /app/jackett/jackett -- --DataFolder=/root/jackett
 fi
 
-pidlist=$(pidof python3)
+pidlist=$(pidof python3-launcher)
 if [ -z "$pidlist" ]
 then
     crashed=$(( $crashed + 1 ))
