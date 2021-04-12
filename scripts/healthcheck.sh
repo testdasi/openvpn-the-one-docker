@@ -73,11 +73,11 @@ then
     start-stop-daemon --start --background --name sonarr --chdir /app/sonarr --exec /usr/bin/mono-sonarr -- --debug NzbDrone.exe -nobrowser -data=/root/sonarr
 fi
 
-pidlist=$(pidof mono-radarr)
+pidlist=$(pidof Radarr)
 if [ -z "$pidlist" ]
 then
     crashed=$(( $crashed + 1 ))
-    start-stop-daemon --start --background --name radarr --chdir /app/radarr --exec /usr/bin/mono-radarr -- --debug Radarr.exe -nobrowser -data=/root/radarr
+    start-stop-daemon --start --background --name radarr --chdir /app/radarr --exec /app/radarr/Radarr -- -nobrowser -data=/root/radarr
 fi
 
 pidlist=$(pidof jackett)
