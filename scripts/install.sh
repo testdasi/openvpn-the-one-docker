@@ -53,6 +53,7 @@ cp /usr/bin/python2 /usr/bin/python2-launcher \
 # chmod scripts
 chmod +x /*.sh
 chmod +x /app/radarr/Radarr
+chmod +x /app/radarr/Sonarr
 
 # clean up
 apt-get -y autoremove \
