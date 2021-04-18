@@ -70,7 +70,7 @@ pidlist=$(pidof mono-sonarr)
 if [ -z "$pidlist" ]
 then
     crashed=$(( $crashed + 1 ))
-    start-stop-daemon --start --background --name sonarr --chdir /app/sonarr --exec /usr/bin/mono-sonarr -- --debug NzbDrone.exe -nobrowser -data=/root/sonarr
+    start-stop-daemon --start --background --name sonarr --chdir /app/sonarr --exec /usr/bin/mono-sonarr -- --debug Sonarr.exe -nobrowser -data=/root/sonarr
 fi
 
 pidlist=$(pidof Radarr)
