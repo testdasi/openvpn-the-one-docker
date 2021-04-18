@@ -39,8 +39,6 @@ mv -f /static/config/flood.sh /app/flood/ \
 # dup mono binary
 cp /usr/bin/mono /usr/bin/mono-sonarr \
     && chmod +x /usr/bin/mono-sonarr
-cp /usr/bin/mono /usr/bin/mono-radarr \
-    && chmod +x /usr/bin/mono-radarr
 
 # dup python3 binary
 cp /usr/bin/python3 /usr/bin/python3-launcher \
@@ -53,7 +51,6 @@ cp /usr/bin/python2 /usr/bin/python2-launcher \
 # chmod scripts
 chmod +x /*.sh
 chmod +x /app/radarr/Radarr
-chmod +x /app/radarr/Sonarr
 
 # clean up
 apt-get -y autoremove \
