@@ -70,7 +70,6 @@ then
     ### sonarr
     echo ''
     echo "[info] Run sonarr in background on port $SONARR_PORT"
-    #start-stop-daemon --start --background --name sonarr --chdir /app/sonarr --exec /usr/bin/mono-sonarr -- --debug NzbDrone.exe -nobrowser -data=/root/sonarr
     start-stop-daemon --start --background --name sonarr --chdir /app/sonarr --exec /usr/bin/mono-sonarr -- --debug Sonarr.exe -nobrowser -data=/root/sonarr
 
     ### radarr
