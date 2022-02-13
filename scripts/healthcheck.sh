@@ -28,7 +28,7 @@ else
         crashed=$(( $crashed + 1 ))
         tinyproxy -c /root/tinyproxy/tinyproxy.conf
     fi
-        
+
     pidlist=$(pidof tor)
     if [ -z "$pidlist" ]
     then
@@ -55,6 +55,14 @@ else
     then
         crashed=$(( $crashed + 1 ))
         transmission-daemon --config-dir=/root/transmission
+    fi
+
+    # Flood #
+    pidlist=$(pidof node)
+    if [ -z "$pidlist" ]
+    then
+        crashed=$(( $crashed + 1 ))
+        start-stop-daemon --start --background --name flood --chdir /usr/bin --exec flood -- --rundir=/root/flood --host=${SERVER_IP} --port=${TORRENT_GUI_PORT}
     fi
 
     pidlist=$(pgrep nzbhydra2)
