@@ -45,11 +45,11 @@ then
     sabnzbdplus --daemon --config-file /root/sabnzbdplus/sabnzbdplus.ini --pidfile /root/sabnzbdplus/sabnzbd.pid
 fi
 
-pidlist=$(pidof rtorrent)
+pidlist=$(pidof transmission-daemon)
 if [ -z "$pidlist" ]
 then
     crashed=$(( $crashed + 1 ))
-    screen -d -m -fa -S rtorrent /usr/bin/rtorrent
+    transmission-daemon --config-dir=/root/transmission
 fi
 
 pidlist=$(pgrep nzbhydra2)
