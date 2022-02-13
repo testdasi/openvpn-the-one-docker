@@ -58,9 +58,10 @@ then
 
     ### rtorrent + flood
     echo ''
-    echo "[info] Run rtorrent and flood in background on port $FLOOD_PORT"
+    echo "[info] Run rtorrent and flood in background at ${SERVER_IP}:$FLOOD_PORT"
     screen -d -m -fa -S rtorrent /usr/bin/rtorrent
-    start-stop-daemon --start --background --name flood --chdir /app/flood --exec /app/flood/flood.sh
+    #start-stop-daemon --start --background --name flood --chdir /app/flood --exec /app/flood/flood.sh
+    start-stop-daemon --start --background --name flood --chdir /usr/bin --exec flood -- --rundir=/root/rtorrent/flood_db --host=${SERVER_IP} --port=$FLOOD_PORT
 
     ### nzbhydra2
     echo ''
