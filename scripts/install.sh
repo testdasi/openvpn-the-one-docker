@@ -6,12 +6,12 @@ mkdir -p /temp \
     && curl -L "https://github.com/testdasi/static/archive/master.zip" -o /temp/static.zip \
     && unzip /temp/static.zip \
     && rm -f /temp/static.zip \
+    && rm -Rf /temp/static-master/deprecated \
     && mv /temp/static-master /static
 
 # overwrite static with repo-specific stuff
 mkdir -p /temp \
     && cd /temp \
-    && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-hyrosa/master/config/flood.sh" \
     && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-client-aio/master/config/privoxy" \
     && curl -O -L "https://raw.githubusercontent.com/testdasi/openvpn-client-aio/master/config/torrc" \
     && cp -f /temp/* /static/config/ \
@@ -26,15 +26,10 @@ sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_dante.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_tinyproxy.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sabnzbdplus.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_rtorrent.sh'
-sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_flood.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_nzbhydra2.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sonarr.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_radarr.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_jackett.sh'
-
-# flood.sh
-mv -f /static/config/flood.sh /app/flood/ \
-    && chmod +x /app/flood/flood.sh
 
 # dup mono binary
 cp /usr/bin/mono /usr/bin/mono-sonarr \
