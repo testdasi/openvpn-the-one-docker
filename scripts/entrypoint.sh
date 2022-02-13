@@ -56,11 +56,11 @@ then
     echo "[info] Run sabnzbdplus in background on HTTP port $SAB_PORT_A and HTTPS port $SAB_PORT_B"
     sabnzbdplus --daemon --config-file /root/sabnzbdplus/sabnzbdplus.ini --pidfile /root/sabnzbdplus/sabnzbd.pid
 
-    ### rtorrent + flood
+    ### transmission + flood
     echo ''
-    echo "[info] Run rtorrent and flood in background at $FLOOD_IP:$FLOOD_PORT"
-    screen -d -m -fa -S rtorrent /usr/bin/rtorrent
-    start-stop-daemon --start --background --name flood --chdir /usr/bin --exec flood -- --rundir=/root/rtorrent/flood_db --host=$FLOOD_IP --port=$FLOOD_PORT
+    echo "[info] Run transmission-daemon and flood in background at $FLOOD_IP:$FLOOD_PORT"
+    transmission-daemon --config-dir=/root/transmission
+    start-stop-daemon --start --background --name flood --chdir /usr/bin --exec flood -- --rundir=/root/flood --host=$FLOOD_IP --port=$FLOOD_PORT
 
     ### nzbhydra2
     echo ''
