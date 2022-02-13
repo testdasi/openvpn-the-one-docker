@@ -4,6 +4,10 @@
 if [[ -f "/root/openvpn/openvpn.ovpn" ]]
 then
     echo '[info] Config file detected...'
+    ### Disable health check ###
+    echo '[info] Disabling healthcheck while openvpn is connecting'
+    touch /root/disable_healthcheck
+    
     ### Set various variable values ###
     echo ''
     echo '[info] Setting variables'
@@ -86,6 +90,10 @@ then
     echo ''
     echo "[info] Run WebUI launcher in background at $LAUNCHER_IP:$LAUNCHER_PORT"
     start-stop-daemon --start --background --name launcher --chdir /app/launcher --exec /app/launcher/launcher-python3.sh
+    
+    ### Enable health check ###
+    echo '[info] Enabling healthcheck'
+    rm -f /root/disable_healthcheck
 
     ### Periodically checking IP ###
     sleep_time=3600
