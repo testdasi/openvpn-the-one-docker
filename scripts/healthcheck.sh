@@ -52,13 +52,6 @@ then
     screen -d -m -fa -S rtorrent /usr/bin/rtorrent
 fi
 
-pidlist=$(pidof npm)
-if [ -z "$pidlist" ]
-then
-    crashed=$(( $crashed + 1 ))
-    start-stop-daemon --start --background --name flood --chdir /app/flood --exec /app/flood/flood.sh
-fi
-
 pidlist=$(pgrep nzbhydra2)
 if [ -z "$pidlist" ]
 then
