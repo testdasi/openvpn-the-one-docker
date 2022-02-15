@@ -43,6 +43,7 @@ source /static/scripts/fix_config_sabnzbdplus.sh
 source /static/scripts/fix_config_transmission.sh
 source /static/scripts/fix_config_flood.sh
 source /static/scripts/fix_config_nzbhydra2.sh
+source /static/scripts/fix_config_jackett.sh
 source /static/scripts/fix_config_sonarr.sh
 source /static/scripts/fix_config_radarr.sh
-source /static/scripts/fix_config_jackett.sh
+source /static/scripts/fix_config_prowlarr.sh
