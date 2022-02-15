@@ -20,6 +20,7 @@ sed -i "s|_FLOOD_PORT_|$FLOOD_PORT|g" '/nftables.rules'
 sed -i "s|_SONARR_PORT_|$SONARR_PORT|g" '/nftables.rules'
 sed -i "s|_RADARR_PORT_|$RADARR_PORT|g" '/nftables.rules'
 sed -i "s|_JACKETT_PORT_|$JACKETT_PORT|g" '/nftables.rules'
+sed -i "s|_PROWLARR_PORT_|$PROWLARR_PORT|g" '/nftables.rules'
 
 ### static scripts ###
 source /static/scripts/nftables_apply.sh
