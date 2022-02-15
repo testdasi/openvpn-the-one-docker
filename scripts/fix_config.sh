@@ -19,9 +19,10 @@ sed -i "s|python2 |python2-launcher |g" '/app/launcher/launcher-python2.sh'
 sed -i "s|:8080|:$SAB_PORT_A|g" '/app/launcher/index.html'
 sed -i "s|:5076|:$HYDRA_PORT|g" '/app/launcher/index.html'
 sed -i "s|:3000|:$FLOOD_PORT|g" '/app/launcher/index.html'
+sed -i "s|:9117|:$JACKETT_PORT|g" '/app/launcher/index.html'
 sed -i "s|:8989|:$SONARR_PORT|g" '/app/launcher/index.html'
 sed -i "s|:7878|:$RADARR_PORT|g" '/app/launcher/index.html'
-sed -i "s|:9117|:$JACKETT_PORT|g" '/app/launcher/index.html'
+sed -i "s|:9696|:$PROWLARR_PORT|g" '/app/launcher/index.html'
 echo '[info] launcher fixed.'
 
 mkdir -p /root/tor \
@@ -40,9 +41,9 @@ source /static/scripts/fix_config_stubby.sh
 source /static/scripts/fix_config_dante.sh
 source /static/scripts/fix_config_tinyproxy.sh
 source /static/scripts/fix_config_sabnzbdplus.sh
+source /static/scripts/fix_config_nzbhydra2.sh
 source /static/scripts/fix_config_transmission.sh
 source /static/scripts/fix_config_flood.sh
-source /static/scripts/fix_config_nzbhydra2.sh
 source /static/scripts/fix_config_jackett.sh
 source /static/scripts/fix_config_sonarr.sh
 source /static/scripts/fix_config_radarr.sh
