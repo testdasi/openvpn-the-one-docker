@@ -70,6 +70,11 @@ then
     echo ''
     echo "[info] Run nzbhydra2 in background on port $HYDRA_PORT"
     /app/nzbhydra2/nzbhydra2 --daemon --nobrowser --java /usr/lib/jvm/java-11-openjdk-amd64/bin/java --datafolder /root/nzbhydra2 --pidfile /root/nzbhydra2/nzbhydra2.pid
+    
+    ### jackett
+    echo ''
+    echo "[info] Run jackett in background on port $JACKETT_PORT"
+    start-stop-daemon --start --background --chuid nobody --name jackett --chdir /app/jackett --exec /app/jackett/jackett -- --DataFolder=/root/jackett
 
     ### sonarr
     echo ''
@@ -81,10 +86,10 @@ then
     echo "[info] Run radarr in background on port $RADARR_PORT"
     start-stop-daemon --start --background --name radarr --chdir /app/radarr --exec /app/radarr/Radarr -- -nobrowser -data=/root/radarr
 
-    ### jackett
+    ### prowlarr
     echo ''
-    echo "[info] Run jackett in background on port $JACKETT_PORT"
-    start-stop-daemon --start --background --chuid nobody --name jackett --chdir /app/jackett --exec /app/jackett/jackett -- --DataFolder=/root/jackett
+    echo "[info] Run prowlarr in background on port $PROWLARR_PORT"
+    start-stop-daemon --start --background --name prowlarr --chdir /app/prowlarr --exec /app/prowlarr/Prowlarr -- -nobrowser -data=/root/prowlarr
 
     ### GUI launcher
     echo ''
