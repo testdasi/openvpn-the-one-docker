@@ -31,6 +31,7 @@ sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_nzbhydra2.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_sonarr.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_radarr.sh'
 sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_jackett.sh'
+sed -i "s|\/etc\/|\/root\/|g" '/static/scripts/fix_config_prowlarr.sh'
 
 # dup mono binary
 cp /usr/bin/mono /usr/bin/mono-sonarr \
